@@ -1,13 +1,10 @@
 class Car:
     def __init__(self, model:str, __vin: int, __numbers:str):
         self.model = model
-        if self.__is_valid_vin(__vin):
-            self.__vin = __vin
-        if self.__is_valid_numbers(__numbers):
-            self.__numbers = __numbers
-
-
-
+        self.__vin = __vin
+        self.__numbers = __numbers
+        self.__is_valid_vin(__vin)
+        self.__is_valid_numbers(__numbers)
 
     def __is_valid_vin(self, vin_number):
         if not isinstance(vin_number, int):
@@ -31,7 +28,6 @@ class IncorrectVinNumber(Exception):
 class IncorrectCarNumbers(Exception):
     def __init__(self, message):
         self.message = message
-
 
 try:
   first = Car('Model1', 1000000, 'f123dj')
